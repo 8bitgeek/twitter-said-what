@@ -54,7 +54,7 @@ def scrape(query,limit):
 #
 def validate(input_obj):
     if date.fromisoformat(input_obj['until']) > date.fromisoformat(input_obj['since']):
-        if len(input_obj['username']) > 0:
+        if ( len(input_obj['username']) > 0 or len(input_obj['query']) > 0 ):
             return True
     return False
 
@@ -65,7 +65,9 @@ def validate(input_obj):
 #
 def compose_query(input_obj):
     # query = "(from:elonmusk) until:2020-01-01 since:2010-01-01"
-    query='(from:'+input_obj['username']+') '
+    query=''
+    if len(input_obj['username']):
+        query=query+'(from:'+input_obj['username']+') '
     query=query+input_obj['query']+' '
     query=query+'until:'+input_obj['until']+' '
     query=query+'since:'+input_obj['since']
@@ -87,7 +89,7 @@ def run_query(input_obj,query):
 def execute():
     #
     # instantiate a command-line parser, and execute it.
-    # the @ref args variable contains the command linse parse results. 
+    # the @ref args variable contains the command line parse results. 
     #
     parser = argparse.ArgumentParser(tweets_name,'-i input -o output','MIT License')
     parser.add_argument('-i','--input',required=True,action='store',help='Specifies json formatted input file.')
