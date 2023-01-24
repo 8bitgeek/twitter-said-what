@@ -115,7 +115,7 @@ def execute():
         else:
             print('invalid input')
             return 1
-        input_file.close();
+        input_file.close()
         return 0
 
 # start-finish
