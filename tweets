@@ -65,7 +65,7 @@ def validate(input_obj):
 #
 def compose_query(input_obj):
     # query = "(from:elonmusk) until:2020-01-01 since:2010-01-01"
-    query='('+input_obj['username']+') '
+    query='(from:'+input_obj['username']+') '
     query=query+input_obj['query']+' '
     query=query+'until:'+input_obj['until']+' '
     query=query+'since:'+input_obj['since']

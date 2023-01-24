@@ -15,7 +15,7 @@
     
     <form action="tweets.php">
         <table>
-            <tr><td><label for="username">Username (Handle):</label></td><td><input type="text" id="username" name="username" value=""></td></tr>
+            <tr><td><label for="username">Twitter Handle:</label></td><td><input type="text" id="username" name="username" value=""></td></tr>
             <tr><td><label for="limit">Limit:</label></td><td><input type="number" id="limit" name="limit" min="1" max="1000" step="1" value="100"></td></tr>
             <tr><td><label for="query">Query:</label></td><td><input type="text" id="query" name="query" value=""></td></tr>
             <tr><td><label for="since">Since:</label></td><td><input type="date" id="since" name="since" value="2020-01-01"></td></tr>
