@@ -109,8 +109,6 @@ def execute():
             query=compose_query(input_obj)
             data_frame=run_query(input_obj,query)
             csv_text=data_frame.to_csv()
-            print(args.output)
-            print(csv_text)
             with open(args.output, 'w') as output_file:
                 output_file.write(csv_text)
                 output_file.close()
