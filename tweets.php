@@ -10,7 +10,8 @@
     <title>Twitter Said What?</title>
 </head>
 <body>
-    <a Twitter Said What?</h2>
+    <a href="">Twitter Said What?<a>
+    <br/><br/><br/>
     
     <form action="tweets.php">
         <table>
@@ -79,10 +80,7 @@
         }
     ?>
 
-    <br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/>
-    <br/><br/><br/><br/><br/>
+    <br/><br/><br/>
     <hr/>
     <a href="https://github.com/8bitgeek/twitter-said-what" target="_blank">Fork Me</a>
 
