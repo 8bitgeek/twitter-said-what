@@ -32,6 +32,7 @@ The aim of this project is to create a web based twitter query tool that is simp
 
 # To do on some later rainy day...
 
+- Enable other sites besides twitter, facebook, etc...
 - Include a CSS URL for styling
 - Remove dependency on PHP and make the front-end purely AJAX driven.
 - Better error detection.
