@@ -79,6 +79,8 @@ def compose_query(input_obj):
 #
 def run_query(input_obj,query):
     limit = 100
+    if len(input_obj['limit']) > 0:
+         limit = int(input_obj['limit'])
     return pandas.DataFrame(scrape(query,limit), columns=['Date', 'User', 'Tweet'])
 
 ##############################################################################
