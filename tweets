@@ -47,8 +47,7 @@ def scrape(query,limit):
     return tweets
 
 ##############################################################################
-# @brief Validate the contents ov the json string, values are in rance 
-# and query strings are not empty.
+# @brief Validate the contents ov the json string, values are in range.
 # @param input_obj A json object which represents the input parameters.
 # @return True if the json and contents are valid.
 #
