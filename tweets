@@ -84,7 +84,7 @@ def run_query(input_obj,query):
 
 ##############################################################################
 # @brief Parse the command line arguments and execute the query
-# @return a csv query result based on command line input parameters
+# @return 0 on success, else non-zero exit code on failure.
 #
 def execute():
     #
