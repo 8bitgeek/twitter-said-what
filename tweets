@@ -34,8 +34,8 @@ tweets_name='tweets'
 tweets_version='0.1'
 
 ##############################################################################
-# @brief Perform an itterative fetch foe eatch matching query
-# @return A list of results in a csv format.
+# @brief Perform an itterative fetch for each matching query
+# @return A list of results in a python array object.
 #
 def scrape(query,limit):
     tweets = []
