@@ -15,6 +15,7 @@ query tool that is simple to deploy on a typical web server.
 - The 'tweets' python script is then called with the input and output filenames.
 - The jSON string contains all the input parameters, and is used to construct the query.
 - After the query runs, the output CSV file is generated using the php session id generated filename.
+- The output folder is "csv" folder, and must have write permission for your web server to be able to write there.
 
 # jSON file format
 
@@ -29,11 +30,23 @@ query tool that is simple to deploy on a typical web server.
 
 ```
 
-# Fetch and Install
+# To do one day...
+
+- Include a CSS URL for styling
+- Remove dependency on PHP and make the front-end purely AJAX driven.
+- Better error detection.
+- Increase the output record limit.
+
+# Fetch and Setup
 ```
+sudo apt-get install python3
+sudo apt install python-is-python3
+sudo apt-get install apache2
+sudo apt-get install php
 sudo pip3 install pandas
 sudo pip3 install snscrape
 git clone https://github.com/8bitgeek/twitter-said-what.git
+cp -arvf twitter-said-what.git <some-web-directory>
 
 ```
 # Demo
