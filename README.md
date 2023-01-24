@@ -4,11 +4,11 @@ A web-enabled twitter query-bot thingy.
 
 # About
 
-The aim of this project is to create a web based twitter  
-query tool that is simple to deploy on a typical web server.
+The aim of this project is to create a web based twitter query tool that is simple to deploy on a typical web server.
 
 # Release Notes
 
+- Basic function achieved, not much beyond basic functionality.
 - The front end runs a little PHP script to hand the form GET data.
 - The PHP script converts the GET data to a jSON string and stores that to a temporary file on the server.
 - The php session id is recorded and used to compose the output file name.
@@ -30,12 +30,13 @@ query tool that is simple to deploy on a typical web server.
 
 ```
 
-# To do one day...
+# To do on some later rainy day...
 
 - Include a CSS URL for styling
 - Remove dependency on PHP and make the front-end purely AJAX driven.
 - Better error detection.
 - Increase the output record limit.
+- Option to compress (.zip) the csv file.
 
 # Fetch and Setup
 ```
