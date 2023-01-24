@@ -1,0 +1,121 @@
+#!/usr/bin/python
+##############################################################################
+# Copyright (c) 2023 Mike Sharkey mike@8bitgeek.net
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+import snscrape.modules.twitter as sntwitter
+import pandas
+import argparse
+import json
+from datetime import date
+import os;
+
+##############################################################################
+# Application identification and version number
+#
+tweets_name='tweets'
+tweets_version='0.1'
+
+##############################################################################
+# @brief Perform an itterative fetch foe eatch matching query
+# @return A list of results in a csv format.
+#
+def scrape(query,limit):
+    tweets = []
+    for tweet in sntwitter.TwitterSearchScraper(query).get_items():
+        if len(tweets) >= limit:
+            break
+        else:
+            tweets.append([tweet.date, tweet.user.username, tweet.rawContent])
+    return tweets
+
+##############################################################################
+# @brief Validate the contents ov the json string, values are in rance 
+# and query strings are not empty.
+# @param input_obj A json object which represents the input parameters.
+# @return True if the json and contents are valid.
+#
+def validate(input_obj):
+    if date.fromisoformat(input_obj['until']) > date.fromisoformat(input_obj['since']):
+        if len(input_obj['username']) > 0:
+            return True
+    return False
+
+##############################################################################
+# @brief Compose the query string
+# @param input_obj A json object which represents the input parameters.
+# @return The composed query string.
+#
+def compose_query(input_obj):
+    # query = "(from:elonmusk) until:2020-01-01 since:2010-01-01"
+    query='('+input_obj['username']+') '
+    query=query+input_obj['query']+' '
+    query=query+'until:'+input_obj['until']+' '
+    query=query+'since:'+input_obj['since']
+    return query
+
+##############################################################################
+# @brief Execute the query string
+# @param input_obj A json object which represents the input parameters.
+# @return A DataFrame object containing the retrieved records.
+#
+def run_query(input_obj,query):
+    limit = 100
+    return pandas.DataFrame(scrape(query,limit), columns=['Date', 'User', 'Tweet'])
+
+##############################################################################
+# @brief Parse the command line arguments and execute the query
+# @return a csv query result based on command line input parameters
+#
+def execute():
+    #
+    # instantiate a command-line parser, and execute it.
+    # the @ref args variable contains the command linse parse results. 
+    #
+    parser = argparse.ArgumentParser(tweets_name,'-i input -o output','MIT License')
+    parser.add_argument('-i','--input',required=True,action='store',help='Specifies json formatted input file.')
+    parser.add_argument('-o','--output',required=True,action='store',help='Specifies csv formatted output file.')
+    parser.add_argument('--version', action='version', version=tweets_name+' '+tweets_version)
+    args = parser.parse_args()
+    #
+    # read and parse the input json file into a json object.
+    #
+    with open(args.input, 'r') as input_file:
+        input_obj = json.loads(input_file.read())
+        # 
+        # parse the file contents
+        #
+        if validate(input_obj):
+            query=compose_query(input_obj)
+            data_frame=run_query(input_obj,query)
+            csv_text=data_frame.to_csv()
+            print(args.output)
+            print(csv_text)
+            with open(args.output, 'w') as output_file:
+                output_file.write(csv_text)
+                output_file.close()
+        else:
+            print('invalid input')
+            return 1
+        input_file.close();
+        return 0
+
+# start-finish
+exit(execute())
