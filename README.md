@@ -17,7 +17,7 @@ The aim of this project is to create a web based twitter query tool that is simp
 - After the query runs, the output CSV file is generated using the php session id generated filename.
 - The output folder is "csv" folder, and must have write permission for your web server to be able to write there.
 
-# jSON file format
+# jSON input file format
 
 ```
 {
@@ -47,7 +47,7 @@ sudo apt-get install php
 sudo pip3 install pandas
 sudo pip3 install snscrape
 git clone https://github.com/8bitgeek/twitter-said-what.git
-cp -arvf twitter-said-what.git <some-web-directory>
+cp -arvf twitter-said-what/* <some-web-directory>
 
 ```
 # Demo
