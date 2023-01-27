@@ -43,7 +43,7 @@ def scrape(query,limit):
         if len(tweets) >= limit:
             break
         else:
-            tweets.append([tweet.date, tweet.user.username, tweet.rawContent])
+            tweets.append([tweet.date, tweet.user.username, tweet.rawContent, tweet.url])
     return tweets
 
 ##############################################################################
@@ -81,7 +81,7 @@ def run_query(input_obj,query):
     limit = 100
     if len(input_obj['limit']) > 0:
          limit = int(input_obj['limit'])
-    return pandas.DataFrame(scrape(query,limit), columns=['Date', 'User', 'Tweet'])
+    return pandas.DataFrame(scrape(query,limit), columns=['Date', 'Handle', 'Tweet', 'Tweet URL'])
 
 ##############################################################################
 # @brief Parse the command line arguments and execute the query
