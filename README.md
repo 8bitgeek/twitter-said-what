@@ -39,7 +39,7 @@ The aim of this project is to create a web based twitter query tool that is simp
 - Increase the output record limit.
 - Option to compress (.zip) the csv file.
 - Alternative output formats (jSON,XML,etc..)
-- HTTP GET Option to supress the form data and emit the output data. 
+- HTTP GET Option to supress the form data and emit the output data.
 
 # Fetch and Setup
 ```
