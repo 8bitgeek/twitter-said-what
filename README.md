@@ -48,14 +48,7 @@ Where all files in the cvs/ folder older than 'minutes-old' will be moreved.
 
 # To do on some later rainy day...
 
-- Enable other sites besides twitter, such as facebook, etc...
-- Include a CSS URL for styling
-- Remove dependency on PHP and make the front-end purely AJAX driven.
-- Better error detection.
-- Increase the output record limit.
-- Option to compress (.zip) the csv file.
-- Alternative output formats (jSON,XML,etc..)
-- HTTP GET Option to supress the form data and emit the output data.
+https://github.com/8bitgeek/twitter-said-what/issues
 
 # Fetch and Setup
 ```
