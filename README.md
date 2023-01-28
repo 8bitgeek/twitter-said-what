@@ -17,6 +17,14 @@ The aim of this project is to create a web based twitter query tool that is simp
 - After the query runs, the output CSV file is generated using the php session id generated filename.
 - The output folder is "csv" folder, and must have write permission for your web server to be able to write there.
 
+# Using the `tweets` script
+
+```
+  $ tweets -i <input-json-file> -o <output-file-name>
+  example:
+     $ tweets -i /tmp/1234abc.json -o csv/tdel49pq54drsjavk2ar76ho6g.csv
+```
+
 # jSON input file format
 
 ```
@@ -29,6 +37,14 @@ The aim of this project is to create a web based twitter query tool that is simp
 }
 
 ```
+
+# Using the `clean`
+
+```
+  $ clean -m <minutes-old>
+```
+
+Where all files in the cvs/ folder older than 'minutes-old' will be moreved.
 
 # To do on some later rainy day...
 
