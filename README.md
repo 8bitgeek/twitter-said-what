@@ -6,7 +6,7 @@ A web-enabled twitter query-bot thingy.
 
 The aim of this project is to create a web based twitter query tool that is simple to deploy on a typical web server.
 
-# Release Notes
+# Notes
 
 - Basic function achieved, not much beyond basic functionality.
 - The front end runs a little PHP script to hand the form GET data.
@@ -16,6 +16,7 @@ The aim of this project is to create a web based twitter query tool that is simp
 - The jSON string contains all the input parameters, and is used to construct the query.
 - After the query runs, the output CSV file is generated using the php session id generated filename.
 - The output folder is "csv" folder, and must have write permission for your web server to be able to write there.
+- Whenever a query is submitted, the clean script runs and will remove output files older than preset minutes (10).
 
 # Using the `tweets` script
 
