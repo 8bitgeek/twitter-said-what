@@ -45,13 +45,6 @@
             fwrite($json_fd, $json_text);
             $json_size = filesize($input_path);
 
-            // debuging output
-            if ( 1 )
-            {
-                fseek($json_fd, 0);
-                fread($json_fd,$json_size);
-            }
-
             // perform the syscall to run the python script
             $output=null;
             $retval=null;
