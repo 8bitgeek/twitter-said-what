@@ -38,7 +38,7 @@ The aim of this project is to create a web based twitter query tool that is simp
 
 ```
 
-# Using the `clean`
+# Using the `clean` script
 
 ```
   $ clean -m <minutes-old>
