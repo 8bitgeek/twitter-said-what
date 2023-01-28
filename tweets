@@ -25,7 +25,6 @@ import pandas
 import argparse
 import json
 from datetime import date
-import os;
 
 ##############################################################################
 # Application identification and version number
@@ -43,7 +42,7 @@ def scrape(query,limit):
         if len(tweets) >= limit:
             break
         else:
-            tweets.append([tweet.date, tweet.user.username, tweet.url, tweet.rawContent])
+            tweets.append([tweet.date, tweet.user.username, tweet.url, tweet.rawContent, tweet.hashtags])
     return tweets
 
 ##############################################################################
@@ -81,7 +80,7 @@ def run_query(input_obj,query):
     limit = 100
     if len(input_obj['limit']) > 0:
          limit = int(input_obj['limit'])
-    return pandas.DataFrame(scrape(query,limit), columns=['Date', 'Handle', 'Tweet URL', 'Tweet'])
+    return pandas.DataFrame(scrape(query,limit), columns=['Date', 'Handle', 'Tweet URL', 'Tweet', 'Hashtags'])
 
 ##############################################################################
 # @brief Parse the command line arguments and execute the query
