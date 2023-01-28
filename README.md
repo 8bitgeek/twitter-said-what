@@ -44,14 +44,13 @@ The aim of this project is to create a web based twitter query tool that is simp
 # Fetch and Setup
 ```
 sudo apt-get install python3
-sudo apt install python-is-python3
+sudo apt-get install python-is-python3
 sudo apt-get install apache2
 sudo apt-get install php
 sudo pip3 install pandas
 sudo pip3 install snscrape
 git clone https://github.com/8bitgeek/twitter-said-what.git
 cp -arvf twitter-said-what/* <some-web-directory>
-
 ```
 # Demo
 
