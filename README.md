@@ -54,7 +54,7 @@ cp -arvf twitter-said-what/* <some-web-directory>
 ```
 # Demo
 
-http://8bitgeek.ddns.net/~mike/tweets.php
+http://tweets.8bitgeek.net/
 
 # Other Sources of Information
 
