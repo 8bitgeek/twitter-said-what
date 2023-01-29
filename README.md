@@ -45,7 +45,7 @@ The aim of this project is to create a web based twitter query tool that is simp
   $ clean -m <minutes-old>
 ```
 
-Where all files in the cvs/ folder older than 'minutes-old' will be moreved.
+Where all files in the cvs/ folder older than 'minutes-old' will be removed.
 
 # To do on some later rainy day...
 
